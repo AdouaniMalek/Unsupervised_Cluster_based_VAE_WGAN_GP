@@ -8,11 +8,8 @@ This repository contains the research implementation of a hybrid generative fram
 - a **Wasserstein GAN with Gradient Penalty (WGAN-GP)** to improve synthetic-data fidelity; and
 - an adversarial **Fairness Critic** intended to reduce dependence between generated cluster structure and protected attributes.
 
-<<<<<<< HEAD
 The repository also includes an ablation without adversarial debiasing, six dataset-specific fairness evaluation scripts, and a shared realism evaluation script for comparing real and synthetic data.
-=======
-The repository also includes an ablation without adversarial debiasing and a separate script for post-generation fairness and clustering evaluation.
->>>>>>> origin/main
+
 
 ## Motivation
 
@@ -57,15 +54,14 @@ The pipeline consists of the following stages:
 
 5. **Synthetic-data postprocessing and evaluation**
    - Binary columns are thresholded at `0.5`; numerical columns retain continuous values.
-<<<<<<< HEAD
+
    - Each `Fairness_evaluation_n.py` script is paired with `Dataset_n` and uses that dataset's own demographic attributes.
    - The fairness scripts cluster synthetic records after excluding the corresponding protected attributes.
    - They report protected-group cluster distributions, mutual information, silhouette score, and Davies–Bouldin index.
    - `Realism_evaluation.py` separately compares the generated records with their corresponding real data using the realism metrics implemented in that script.
-=======
+
    - The evaluation script clusters the synthetic records after excluding protected attributes.
    - It reports protected-group cluster distributions, mutual information, silhouette score, and Davies–Bouldin index.
->>>>>>> origin/main
 
 
 ## 🗂 Datasets
@@ -89,7 +85,7 @@ This work leverages multiple datasets, each with a dedicated tailored architectu
 Clust_VAE_WGAN_GP/
 ├── README.md
 ├── requirements.txt
-<<<<<<< HEAD
+
 ├── Dataset_1/
 │   ├── models/
 │   ├── Architecture.py
@@ -144,13 +140,12 @@ The numerical suffix establishes the dataset–evaluation correspondence:
 ```
 
 Each `Dataset_n` directory should follow the same organization. Dataset-specific filenames, protected attributes, continuous columns, sample counts, and hyperparameters must be documented in its local `README.md` or in the dataset table below.
->>>>>>> origin/main
 
 ## Main files
 
 | File | Purpose |
 |---|---|
-<<<<<<< HEAD
+
 | `Dataset_n/Architecture.py` | Trains the complete dataset-specific cluster-based VAE + zCDP + WGAN-GP + Fairness Critic pipeline and generates synthetic samples. |
 | `Dataset_n/Architecture_WO_Adv_deb.py` | Dataset-specific ablation that keeps the cluster-based VAE, privacy component, and WGAN-GP but removes adversarial debiasing. |
 | `Dataset_n/zcdp_accountant.py` | Computes the zCDP privacy parameter and converts it to an `(epsilon, delta)` report for that experiment. |
@@ -163,17 +158,16 @@ Each `Dataset_n` directory should follow the same organization. Dataset-specific
 | `Fairness_evaluation.py` | Computes protected-group cluster distributions, mutual information, silhouette score, and Davies–Bouldin index on a generated CSV file. |
 | `zcdp_accountant.py` | Computes the zCDP privacy parameter and converts it to an `(epsilon, delta)` report. |
 | `preprocessed_*.csv` | Dataset-specific model input. Replace the wildcard with the exact documented filename. |
->>>>>>> origin/main
 
 ## Data requirements and organization
 
 The training scripts expect a numeric CSV matrix with one row per record and one column per model feature.
 
-<<<<<<< HEAD
+
 The datasets are obtained from their official or referenced access pages and are not necessarily distributed with this repository. Place each preprocessed input in its matching `Dataset_n/` folder, or update the path in the corresponding architecture script. Real and generated file paths used for evaluation must likewise be configured in the matching script under `Evaluations/`.
 
 =======
->>>>>>> origin/main
+
 Before training:
 
 - remove exported index columns such as `Unnamed: 0`;
@@ -201,7 +195,7 @@ scipy
 matplotlib
 ```
 
-<<<<<<< HEAD
+
 =======
 A minimal `requirements.txt` can therefore contain:
 
@@ -213,18 +207,18 @@ scikit-learn>=1.3
 scipy>=1.10
 matplotlib>=3.7
 ```
->>>>>>> origin/main
+
 
 For exact reproduction, replace broad lower bounds with the versions used in the published experiments and provide the Python, CUDA, and operating-system versions.
 
 ## Installation
 
 ```bash
-<<<<<<< HEAD
+
 git clone https://github.com/AdouaniMalek/Unsupervised_Cluster_based_VAE_WGAN_GP
 =======
 git clone <REPOSITORY_URL>
->>>>>>> origin/main
+
 cd Clust_VAE_WGAN_GP
 
 python -m venv .venv
@@ -274,16 +268,16 @@ model_directory.mkdir(parents=True, exist_ok=True)
 ```
 ## Running an experiment
 
-<<<<<<< HEAD
+
 The training scripts are executed independently for each dataset. The following commands assume that the terminal starts at the repository root.
 =======
 The scripts are currently executed independently for each dataset.
->>>>>>> origin/main
+
 
 ### 1. Run the complete architecture
 
 ```bash
-<<<<<<< HEAD
+
 cd Dataset_1
 python Architecture.py
 ```
@@ -299,7 +293,7 @@ cd ..
 python Architecture.py
 ```
 
->>>>>>> origin/main
+
 For each Dataset, the supplied script writes a generated file following this pattern:
 
 ```text
@@ -324,28 +318,28 @@ Use the same preprocessing, split, random seeds, generation count, and privacy c
 
 ### 3. Evaluate fairness and clustering quality
 
-<<<<<<< HEAD
+
 Return to the repository root. In the fairness file corresponding to the dataset, configure the synthetic-data path, the protected attributes, and the number of clusters. For Dataset 1, edit `Evaluations/Fairness_evaluation_1.py`:
 =======
 In `Fairness_evaluation.py`, set:
->>>>>>> origin/main
+
 
 ```python
 dataset_dir = "/path/to/Clust_VAE_WGAN_GP/Dataset_1"
 file_path = os.path.join(dataset_dir, "<GENERATED_FILE>.csv")
-<<<<<<< HEAD
+
 protected_attributes = ["Gender", "Ethnic_2.0", "Ethnic_3.0", "Ethnic_4.0"]
 num_clusters = 20
 =======
 protected_attributes = ["Determined in each script according to its corresponding demographic attributes"]
 num_clusters = K
->>>>>>> origin/main
+
 ```
 
 Then run:
 
 ```bash
-<<<<<<< HEAD
+
 python Evaluations/Fairness_evaluation_1.py
 ```
 
@@ -365,7 +359,7 @@ Do not reuse Dataset 1's demographic columns automatically. Each fairness script
 python Fairness_evaluation.py
 ```
 
->>>>>>> origin/main
+
 The evaluation script reports:
 
 - cluster proportions conditional on each protected attribute;
@@ -384,7 +378,7 @@ The evaluation script reports:
 
 The labels `Evenly Spread`, `Balanced`, and `Unbalanced` in the supplied evaluation script are based on project-specific thresholds (`0.05` and `0.15`). They are heuristic reporting categories, not generally accepted fairness thresholds. The script uses `KMeans`, despite a comment that refers to a Gaussian mixture model.
 
-<<<<<<< HEAD
+
 ### 4. Evaluate statistical realism
 
 Configure the real and generated CSV paths required by `Evaluations/Realism_evaluation.py`, then run it from the repository root:
@@ -396,7 +390,7 @@ python Evaluations/Realism_evaluation.py
 This evaluation is kept separate from the fairness scripts because it compares real and synthetic distributions, whereas each fairness script depends on dataset-specific demographic attributes. Use the same preprocessing and column order for the real and synthetic inputs, and report the realism metrics separately for each dataset.
 
 =======
->>>>>>> origin/main
+
 ## Default Dataset configurations
 
 | Component | Parameter | Full model | Without adversarial debiasing |
@@ -438,12 +432,12 @@ Before publishing results or comparing the full and ablated models:
 
 - The scripts are notebook-style Python files with `# %%` cells and dataset-specific constants.
 - Output CSV files are written to the current working directory unless an explicit output path is added.
-<<<<<<< HEAD
+
 - The six fairness scripts are dataset-specific. A change to demographic columns in one dataset must be reflected only in its corresponding `Fairness_evaluation_n.py` file.
 - The Dataset 1 fairness example loads the original dataset into `dfo`, but the supplied version does not subsequently use that object.
 =======
 - `Fairness_evaluation.py` loads the original dataset into `dfo`, but the supplied version does not subsequently use that object.
->>>>>>> origin/main
+
 - `chi2_contingency` is imported by the supplied evaluation example but is not used in the reported metrics.
 - `binary_cross_entropy_with_logits` expects raw logits; if the Fairness Critic retains a final sigmoid layer, use binary cross-entropy on probabilities instead, or remove the sigmoid and keep the logits-based loss.
 - The WGAN critic conventionally returns an unconstrained scalar. The current discriminator ends with a sigmoid; this should be reviewed against the intended WGAN-GP formulation before exact reproduction claims are made.
@@ -478,7 +472,7 @@ pages="195--212",
 ## Acknowledgement
 
 This work was supported by the France 2030 grants RHU RECORDS (ANR-18-RHUS-0004) and IHU PROMETHEUS (ANR-23-IAHU-0004) and the iRECORDS project, funded by ERA PerMed (JTC_2021).
-<<<<<<< HEAD
+
 =======
 
->>>>>>> origin/main
+
