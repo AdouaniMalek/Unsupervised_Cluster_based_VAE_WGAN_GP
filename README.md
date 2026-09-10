@@ -22,9 +22,7 @@ The intended objective is to balance three properties:
 
 ## Proposed architecture
 
-![Overview of the proposed Clust-VAE-WGAN-GP architecture](architecture.png)
-
-Place the architecture figure at `architecture.png`. If another filename or format is used, update the Markdown path above.
+![Overview of the proposed Clust-VAE-WGAN-GP architecture](Architecture.png)
 
 The pipeline consists of the following stages:
 
