@@ -120,21 +120,6 @@ The numerical suffix establishes the dataset–evaluation correspondence:
 | `Dataset_5/` | `Evaluations/Fairness_Evaluation_5.py` | Dataset 5 demographic attributes, defined locally in this script. |
 | `Dataset_6/` | `Evaluations/Fairness_evaluation_6.py` | Dataset 6 demographic attributes, defined locally in this script. |
 
-├── Architecture.png
-│   requirements.txt
-├── Dataset_1/
-│   ├── Architecture.py
-│   ├── Architecture_WO_Adv_deb.py
-│   ├── Fairness_evaluation.py
-│   ├── zcdp_accountant.py
-│   ├── preprocessed_HIV.csv
-│   ├── models/                
-│   └── README.md               
-├── Dataset_2/
-├── Dataset_3/
-├── Dataset_4/
-├── Dataset_5/
-└── Dataset_6/
 ```
 
 Each `Dataset_n` directory should follow the same organization. Dataset-specific filenames, protected attributes, continuous columns, sample counts, and hyperparameters must be documented in its local `README.md` or in the dataset table below.
