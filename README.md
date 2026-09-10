@@ -120,18 +120,16 @@ The numerical suffix establishes the dataset–evaluation correspondence:
 | `Dataset_5/` | `Evaluations/Fairness_Evaluation_5.py` | Dataset 5 demographic attributes, defined locally in this script. |
 | `Dataset_6/` | `Evaluations/Fairness_evaluation_6.py` | Dataset 6 demographic attributes, defined locally in this script. |
 
-> File names are case-sensitive on Linux and macOS. The current Dataset 5 script uses an uppercase `E` in `Fairness_Evaluation_5.py`; keep the command and filename identical, or rename it consistently.
-=======
-├── Figures/
-│   └── architecture.png
+├── Architecture.png
+│   requirements.txt
 ├── Dataset_1/
 │   ├── Architecture.py
 │   ├── Architecture_WO_Adv_deb.py
 │   ├── Fairness_evaluation.py
 │   ├── zcdp_accountant.py
 │   ├── preprocessed_HIV.csv
-│   ├── models/                 # created/used during training
-│   └── README.md               # optional dataset-specific documentation
+│   ├── models/                
+│   └── README.md               
 ├── Dataset_2/
 ├── Dataset_3/
 ├── Dataset_4/
