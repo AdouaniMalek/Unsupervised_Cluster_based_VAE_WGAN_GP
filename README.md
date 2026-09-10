@@ -29,7 +29,7 @@ The pipeline consists of the following stages:
 1. **Input and preprocessing**
    - Load a preprocessed tabular CSV file.
    - Scale continuous features to the range expected by the output activation.
-   - Encode categorical and protected attributes numerically, typically through binary or one-hot encoding.
+   - Encode categorical and protected attributes numerically, through one-hot encoding.
 
 2. **Private cluster-based VAE**
    - Encoder: `input -> 512 -> 256 -> (mu, log-variance)`.
@@ -121,19 +121,6 @@ Before training:
 - ensure that protected-attribute names in the code match the CSV columns exactly; and
 - record every preprocessing step to make the experiment reproducible.
 
-Complete this table with the exact information used in the associated article before public release:
-
-| Folder | Dataset | Input CSV | Protected attributes | Numerical columns | Generated sample count | Data access / licence |
-|---|---|---|---|---|---:|---|
-| `Dataset_1` | HIV dataset | `preprocessed_HIV.csv` | `Gender`, `Ethnic_2.0`, `Ethnic_3.0`, `Ethnic_4.0` | `VL`, `CD4`, `Rel CD4` | 8,916 in the supplied script | Add source and licence |
-| `Dataset_2` | Add dataset name | Add filename | Add attributes | Add columns | Add value | Add source and licence |
-| `Dataset_3` | Add dataset name | Add filename | Add attributes | Add columns | Add value | Add source and licence |
-| `Dataset_4` | Add dataset name | Add filename | Add attributes | Add columns | Add value | Add source and licence |
-| `Dataset_5` | Add dataset name | Add filename | Add attributes | Add columns | Add value | Add source and licence |
-| `Dataset_6` | Add dataset name | Add filename | Add attributes | Add columns | Add value | Add source and licence |
-
-Do not commit restricted, identifiable, or otherwise non-redistributable health data. When a dataset cannot be shared, provide its official access page, eligibility conditions, preprocessing description, expected schema, and a small non-sensitive example if permitted.
-
 ## Requirements
 
 - Python 3.10 or later is recommended.
@@ -215,9 +202,6 @@ df = pd.read_csv(dataset_directory / "preprocessed_HIV.csv")
 model_directory = dataset_directory / "models"
 model_directory.mkdir(parents=True, exist_ok=True)
 ```
-
-If GPU execution is used, correct `torch.devise("cuda:0")` to `torch.device("cuda:0")` in scripts that still contain that typographical error.
-
 ## Running an experiment
 
 The scripts are currently executed independently for each dataset.
