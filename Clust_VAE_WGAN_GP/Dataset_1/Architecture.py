@@ -24,7 +24,7 @@ from zcdp_accountant import compute_zcdp,get_privacy_spent
 # %%
 if torch.cuda.is_available():
     print('Cuda is available')
-    device = torch.devise("cuda:0")
+    device = torch.device("cuda:0")
 else:
     device = torch.device('cpu')
 print(device)
