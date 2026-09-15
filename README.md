@@ -434,22 +434,9 @@ publisher="Springer Nature Switzerland",
 pages="195--212",
 }
 ```
-### HAL open citation
-```bibtex
-@inproceedings{adouani:hal-05603494,
-  TITLE = {{G{\'e}n{\'e}ration de Donn{\'e}es Synth{\'e}tiques {\'E}quitables et Pr{\'e}servant la Vie Priv{\'e}e via Autoencodeur Variationnel Bas{\'e} sur le Clustering et R{\'e}seaux Antagonistes G{\'e}n{\'e}ratifs}},
-  AUTHOR = {Adouani, Malek and Chelly Dagdia, Zaineb},
-  URL = {https://hal.science/hal-05603494},
-  BOOKTITLE = {{Conf{\'e}rence Nationale en Intelligence Artificielle (CNIA)}},
-  ADDRESS = {Arras, France},
-  YEAR = {2026},
-  MONTH = Jun,
-  PDF = {https://hal.science/hal-05603494v1/file/CNIA_2026_resume.pdf},
-  HAL_ID = {hal-05603494},
-  HAL_VERSION = {v1},
-}
-```
 
+The open HAL publication summarizing this work is openly available on:
+📄 [Read the publication on HAL](https://hal.science/hal-05603494)
 
 ## Acknowledgement
 This work is funded and supported by the European Union’s Horizon Europe programme under the Marie Skłodowska-Curie Actions (Grant Agreement No. 101236749; https://thunder-msca-se.univ-lille.fr/); France 2030 funding for RHU RECORDS (ANR-18-RHUS-0004) and IHU SEPSIS (ANR23-IAHU-0004); iRECORDS, funded by ERA PerMed (JTC_2021); the Investments for the Future Programme (I-SITE ULNE / ANR-16-IDEX-0004 ULNE), administered by the French National Research Agency (No. I-KUL-22-005-ARCHIE-INFINITE); and funding from Inserm and the French Ministry of Health through the MESSIDORE 2023 call, administered by IReSP (AAP-2023-MSDR-341423).
