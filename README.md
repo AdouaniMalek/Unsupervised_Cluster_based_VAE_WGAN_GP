@@ -434,6 +434,7 @@ publisher="Springer Nature Switzerland",
 pages="195--212",
 }
 ```
+The published chapter describing this work is available on [Springer Nature](https://link.springer.com/chapter/10.1007/978-3-032-05962-8_12). 
 
 The open HAL publication summarizing this work is openly available on:
 📄 [Read the publication on HAL](https://hal.science/hal-05603494)
