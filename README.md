@@ -419,20 +419,6 @@ Before publishing results or comparing the full and ablated models:
 
 - The WGAN critic conventionally returns an unconstrained scalar. The current discriminator ends with a sigmoid; this should be reviewed against the intended WGAN-GP formulation before exact reproduction claims are made.
 
-## References
-
-- D. P. Kingma and M. Welling, [Auto-Encoding Variational Bayes](https://arxiv.org/abs/1312.6114), 2013.
-
-- I. Gulrajani, F. Ahmed, M. Arjovsky, V. Dumoulin, and A. Courville, [Improved Training of Wasserstein GANs](https://arxiv.org/abs/1704.00028), 2017.
-
-- M. Bun and T. Steinke, [Concentrated Differential Privacy: Simplifications, Extensions, and Lower Bounds](https://arxiv.org/abs/1605.02065), 2016.
-
-- [scikit-learn K-Means documentation](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html).
-
-- [scikit-learn silhouette score documentation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_score.html).
-
-- [scikit-learn Davies–Bouldin score documentation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.davies_bouldin_score.html).
-
 ## Citation
 
 If you use this code, please cite the associated paper. Replace the placeholder below with the final bibliographic record and DOI:
